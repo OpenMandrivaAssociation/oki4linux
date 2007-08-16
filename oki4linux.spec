@@ -1,9 +1,9 @@
 Summary:	Drivers for Oki 4w, oki 400w and okipage 4w plus GDI winprinters
 Name:		oki4linux
 Version:	2.1gst
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
-Group:		System/Servers
+Group:		System/Printing
 URL:		http://www.linuxprinting.org/download/printing/
 Source0:	http://www.linuxprinting.org/download/printing/oki4linux-2.1gst.tar.gz
 Source1:	oki4daemon.init
