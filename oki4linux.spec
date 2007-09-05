@@ -1,7 +1,7 @@
 Summary:	Drivers for Oki 4w, oki 400w and okipage 4w plus GDI winprinters
 Name:		oki4linux
 Version:	2.1gst
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	GPL
 Group:		System/Printing
 URL:		http://www.linuxprinting.org/download/printing/
@@ -65,6 +65,10 @@ install -m0755 oki4daemon.init %{buildroot}%{_initrddir}/oki4daemon
 if [ "$1" -ne "1" ]; then
     # On update
     service oki4daemon condrestart > /dev/null 2>/dev/null || :
+else
+    # Turn it off, as printerdrake will enable it if used.
+    # Otherwise this will make printerdrake pop up every boote
+    chkconfig --off oki4daemon
 fi
 
 %preun
