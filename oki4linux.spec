@@ -13,7 +13,6 @@ Requires(post): rpm-helper
 Requires(preun): rpm-helper
 Conflicts:	printer-utils = 2007
 Conflicts:	printer-filters = 2007
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 A Linux / UNIX driver for the  okipage 4w, oki 400w and
