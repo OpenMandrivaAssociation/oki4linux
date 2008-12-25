@@ -1,7 +1,7 @@
 Summary:	Drivers for Oki 4w, oki 400w and okipage 4w plus GDI winprinters
 Name:		oki4linux
 Version:	2.1gst
-Release:	%mkrel 8
+Release:	%mkrel 9
 License:	GPL
 Group:		System/Printing
 URL:		http://www.linuxprinting.org/download/printing/
@@ -9,6 +9,7 @@ Source0:	http://www.linuxprinting.org/download/printing/oki4linux-2.1gst.tar.gz
 Source1:	oki4daemon.init
 Source2:	README.OKI-Winprinters
 Patch0:		oki4linux-2.0-daemon-mdk-patch
+Patch1:		oki4linux-2.1gst-LDFLAGS.diff
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
 Conflicts:	printer-utils = 2007
@@ -23,6 +24,7 @@ okipage 4w plus GDI printers,
 
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p0
 
 # Do some small corrections in the daemon script:
 # - The daemon crashes with "setlogsock('unix');"
@@ -38,7 +40,7 @@ cp %{SOURCE2} README.OKI-Winprinters
 %build
 pushd src
 make clean
-%make CFLAGS="%{optflags}"
+%make CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
 popd
 
 %install
