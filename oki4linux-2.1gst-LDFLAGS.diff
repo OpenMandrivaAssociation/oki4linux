@@ -1,0 +1,13 @@
+--- src/Makefile	2000-10-27 00:43:19.000000000 +0200
++++ src/Makefile.oden	2008-12-25 23:30:06.000000000 +0100
+@@ -1,8 +1,9 @@
+ CC=gcc
+ CFLAGS=-O6 -Wall
++LDFLAGS=
+ 
+ oki4drv: main.c
+-	$(CC) $(CFLAGS) -g main.c -o oki4drv
++	$(CC) $(CFLAGS) $(LDFLAGS) main.c -o oki4drv
+ 
+ install: oki4drv
+ 	install -m4755 oki4drv /usr/local/sbin

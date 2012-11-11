@@ -1,0 +1,16 @@
+--- oki4linux-2.0/src/oki4daemon.orig	Sat Feb 24 17:42:07 2001
++++ oki4linux-2.0/src/oki4daemon	Sat Feb 24 17:46:15 2001
+@@ -36,9 +36,12 @@
+ $fifo = $opt_f if ($opt_f);
+ 
+ if (! -p $fifo) {
+-    system("mkfifo $fifo 0600") == 0
++    system("mkfifo $fifo -m0660") == 0
+ 	or die "Unable to make named pipe $fifo";
+ }
++
++#system("chown lp.sys $fifo; chmod 660 $fifo") == 0
++#    or die "Unable to set ownerships/permissions for named pipe $fifo";
+ 
+ # Step 1.5: dissociate, daemonize, &c...
+ 
