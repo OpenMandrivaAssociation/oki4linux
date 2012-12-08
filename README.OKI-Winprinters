@@ -1,0 +1,28 @@
+Driver for the OKI 4w and compatible winprinters
+------------------------------------------------
+
+These laser printers have neither memory nor a processor and therefore
+they must get their data in an absolutely continuous stream (because
+they cannot buffer data). This cannot be made sure by usual printing
+spoolers (as CUPS or LPD). The only possibility is running a special
+driver program which connects directly to the printer. But this is
+very unconvenient, because many Linux applications can only print
+through a spooler. To solve this, Grant Taylor has created a special
+daemon acting between the printing program and the spooler, the
+"oki4daemon". It provides a named pipe ("/dev/oki4drv") which accepts
+PostScript and renders it for being understood by the printer.
+
+Because "kups" and the web interface of CUPS cannot start an extra
+daemon and also cannot set up a queue with "/dev/oki4drv" as
+destination, you have to install your OKI printer with a special
+installation program. Call it by entering
+
+   oki4w_install
+
+on the command line or by choosing "Configuration"/"Printing"/"Install
+OKI 4w or compatible" in the desktop menues.
+
+NOTE: These printers should not be used on machines which are often
+under high loads (because of the timing requirements) or on machines
+with high security demands (because of the additional daemon).
+
