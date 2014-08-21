@@ -1,0 +1,18 @@
+[Unit]
+Description=Init file for the oki4daemon printer driver daemon
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/echo -n "Starting oki4daemon printer driver daemon: "
+ExecStart=daemon oki4daemon
+ExecStart=/bin/echo
+ExecStart=/bin/touch /var/lock/subsys/oki4daemon
+
+ExecStop=/bin/echo -n "Stopping oki4daemon printer driver daemon: "
+ExecStop=/bin/killproc oki4daemon
+ExecStop=/bin/echo
+ExecStop=/bin/rm -f /var/lock/subsys/oki4daemon
+
+[Install]
+WantedBy=multi-user.target
