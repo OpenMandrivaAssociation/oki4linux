@@ -4,7 +4,7 @@ Version:	2.0
 Release:	2
 License:	GPL
 Group:		System/Printing
-URL:		http://www.linuxprinting.org/download/printing/
+URL:		https://www.linuxprinting.org/download/printing/
 Source0:	http://www.linuxprinting.org/download/printing/oki4linux-2.1gst.tar.gz
 Source1:	oki4daemon.service
 Source2:	README.OKI-Winprinters
