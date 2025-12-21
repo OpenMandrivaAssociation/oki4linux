@@ -12,6 +12,7 @@ Patch0:		oki4linux-2.0-daemon-mdk-patch
 Patch1:		oki4linux-2.1gst-LDFLAGS.diff
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
+BuildRequires:	make
 BuildRequires: systemd
 Requires(post): systemd
 Requires(preun): systemd
